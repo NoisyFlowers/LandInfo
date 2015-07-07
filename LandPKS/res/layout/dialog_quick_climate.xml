@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+	<LinearLayout 
+	    android:id="@+id/quick_climate_main_area"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical"
+	    android:layout_margin="10dp" 
+	>
+	    	
+	    <com.noisyflowers.landpks.android.util.ClimateChartView
+	        android:id="@+id/quick_climate_Climate_Chart"
+	        android:tag="climate"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="10dp"
+	        android:layout_marginBottom="15dp"
+	    />
+	    	    
+	    <TextView
+	        android:id="@+id/quick_climate_TextView_recommendation"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="15dp"
+	    />
+	</LinearLayout>
+    
+
+</ScrollView>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="customAttrs">
+    	<attr name="customMapIcon" format="reference" />
+    	<attr name="customListIcon" format="reference" />
+    	<attr name="customAddIcon" format="reference" />
+    	<attr name="customQuickClimateIcon" format="reference" />
+    </declare-styleable>
+</resources>
