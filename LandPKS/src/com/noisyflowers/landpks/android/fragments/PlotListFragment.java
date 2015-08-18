@@ -29,6 +29,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,6 +49,7 @@ import com.noisyflowers.landpks.android.model.Plot;
 import com.noisyflowers.landpks.android.util.PlotEditFragment;
 
 public class PlotListFragment extends Fragment {
+	private static final String TAG = PlotListFragment.class.getName(); 
 	
 	private ListView listView;
 	private ImageView logoView;
@@ -166,9 +168,12 @@ public class PlotListFragment extends Fragment {
 
 	        Plot plot = list.get(position);
 	        
-	        LandPKSApplication.getInstance().setPlot(plot);  //TODO:  this generates some wasted work; maybe figure something better
 	        textView.setText(plot.name);
 	        
+	        //For this plot, check each edit fragment for completion.  To this this, we load the plot into the global object, which causes
+	        //init of each fragment. This generates some wasted work; maybe figure something better
+			Plot oldPlot = LandPKSApplication.getInstance().getPlot();
+	        LandPKSApplication.getInstance().setPlot(plot);  
 	        boolean completed = true;
 	        List<Fragment> editFragments = LandPKSApplication.getInstance().getEditFragments();
 	        for (Fragment f : editFragments) {
@@ -178,6 +183,12 @@ public class PlotListFragment extends Fragment {
 			if (completed) {
 				((CheckedTextView)rowView).setChecked(true);
 			}
+			
+			//A Samsung S5 running Android 5.0 invokes this getView routine on each plot when transitioning into PhotosActivity 
+			//from the photos edit fragment.  That makes no sense and happens with no other device/os combination that I could test.
+			//This causes corruption of the globla plot, pulling the rug out from under the plot edit activities when we return from 
+			//PhotosActivity.  Setting this back to the original plot fixes this.
+			LandPKSApplication.getInstance().setPlot(oldPlot);
 
 			return rowView;
 	        

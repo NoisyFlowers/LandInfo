@@ -50,7 +50,7 @@
     <string name="title_activity_slope_shape">SlopeShapeActivity</string>
     <string name="title_activity_soil_horizons">SoilHorizonsActivity</string>
     <string name="title_activity_special_soil_conditions">SpecialSoilConditionsActivity</string>
-    <string name="title_activity_review">ReviewActivity</string>
+    <string name="title_activity_review">ReviewActivity</string>
     -->
     <string name="title_activity_edit_list">Detail List</string>
     <string name="title_activity_edit_detail">Detail</string>
@@ -198,8 +198,9 @@
     <string name="photos_activity_instruction">Images will be saved when all four cardinal directions are captured.</string>
     <string name="review_fragment_upload_pending">Upload is pending for this plot.</string>
     <string name="review_fragment_upload_portal_reference">Plot data can also be viewed at landpotential.org/dataportal</string>
+    <string name="review_fragment_verify_test_plot">(Test Plot is checked. Test plot data are deleted 30 days after upload.)</string>
     <string name="review_fragment_data_required">The following are required for upload:</string>
-    <string name="review_fragment_confirm_submit">Confirm submit. Plot data cannot not be changed once submitted.</string>
+    <string name="review_fragment_confirm_submit">Confirm submit. Submitted data may become publicly available. Data cannot currently be modified by user after submitted.</string>
     <string name="review_fragment_lat_lon_required">&#8226; Lat/Lon</string>
     <string name="review_fragment_plot_name_required">&#8226; Plot name</string>
     <string name="review_fragment_recorder_name_required">&#8226; Recorder name</string>

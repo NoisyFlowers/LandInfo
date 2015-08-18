@@ -34,6 +34,7 @@ import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -59,6 +60,7 @@ import com.noisyflowers.landpks.android.model.SoilHorizon;
 import com.noisyflowers.landpks.android.util.PlotEditFragment;
 
 public class ReviewFragment extends PlotEditFragment  implements OnClickListener{
+	private static final String TAG = PlotEditListActivity.class.getName(); 
 
 	private static final String COLUMN_COUNT = "columnCount";
 	private static final int MIN_COLUMNS = 1;
@@ -576,7 +578,12 @@ public class ReviewFragment extends PlotEditFragment  implements OnClickListener
 	    	alert.show(); 		
 		} else {
 			AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-	    	builder.setMessage(getString(R.string.review_fragment_confirm_submit));
+			StringBuilder sB = new StringBuilder(getString(R.string.review_fragment_confirm_submit) + "\n");
+			if (plot.testPlot) {
+				sB.append("\n" +getString(R.string.review_fragment_verify_test_plot) + "\n");
+			}
+
+	    	builder.setMessage(sB.toString());
 			builder.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
 				@Override
 				public void onClick(DialogInterface dialog, int which) {

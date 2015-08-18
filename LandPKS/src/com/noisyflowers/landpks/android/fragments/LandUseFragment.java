@@ -82,9 +82,11 @@ public class LandUseFragment extends PlotEditFragment implements OnCheckedChange
 			CheckBox cB = (CheckBox)rootView.findViewWithTag(LandPKSApplication.getInstance().getApplicationContext().getString(grazingType.name));
 			if (cB.isChecked()) {
 				plot.grazing.add(grazingType);
-				if (grazingType == Grazing.NONE) { //none
-					plot.grazed = true;
+				if (grazingType == Grazing.NONE) { 
+					plot.grazed = false;
 					break; //no other types allowed if not grazed
+				} else {
+					plot.grazed = true;
 				}
 			}	
 		}
